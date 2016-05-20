@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Pets"
+        android:textSize="11pt" />
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:layout_alignParentLeft="true"
+            android:text="Pet Name:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:layout_alignParentRight="true"
+            android:text="Pet Type:" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/pet_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="#000"
+        android:headerDividersEnabled="true"
+        android:isScrollContainer="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/button_enter_more_pets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add More Pets" />
+
+</LinearLayout>
