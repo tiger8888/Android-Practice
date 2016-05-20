@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015, Chen Su -->
+<resources>
+    <!--color name="ColorPrimary">#33CC33</color>
+    <color name="ColorPrimaryDark">#009933</color>
+    <color name="ColorFab">#00FF00</color>
+    <color name="ColorSeparator">#FFFFFF</color>
+    <color name="ColorText">#FFFFFF</color-->
+
+    <color name="ColorPrimary">#FFFFFF</color>
+    <color name="ColorPrimaryDark">#000000</color>
+    <color name="ColorFab">#EDEDED</color>
+    <color name="ColorSeparator">#000000</color>
+    <color name="ColorText">#000000</color>
+</resources>

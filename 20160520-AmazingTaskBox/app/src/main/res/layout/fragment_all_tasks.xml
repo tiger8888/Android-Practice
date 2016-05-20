@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015, Chen Su -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorPrimaryDark">
+
+
+    <ListView android:id="@+id/allTasksListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+    <!-- TODO: why this separator will be above the ListView? -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ColorSeparator" />
+
+    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="60dp"
+        app:elevation="6dp"
+        app:borderWidth="1dp"
+        app:pressedTranslationZ="12dp"
+        app:backgroundTint="@color/ColorFab"
+        app:rippleColor="@android:color/white" />
+
+</FrameLayout>
