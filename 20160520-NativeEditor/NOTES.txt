@@ -1,0 +1,386 @@
+    private SpannableStringBuilder spannableStringBuilder;
+    private Pattern helloPattern = Pattern.compile("Hello");
+    private Pattern simplePattern = Pattern.compile("Simple");
+
+    private Handler handler = new Handler();
+
+    private int randomPosition = 0;
+
+    private String editorTexts;
+    private String[] editorLines;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void processTexts(Editable s) {
+        redifyCharacterS(s);
+        syntaxHighlight(s);
+        matchParentheses(s);
+    }
+
+    private void redifyCharacterS(Editable s) {
+        String content = editor.getText().toString();
+
+        ArrayList<Integer> positionsOfS = new ArrayList<>();
+        Pattern pattern = Pattern.compile("[sS]");
+        Matcher matcher = pattern.matcher(content);
+
+        while (matcher.find()) {
+            positionsOfS.add(matcher.start());
+        }
+        //Log.d(TAG, "positionsOfS = " + positionsOfS);
+
+        SpannableString text = new SpannableString(editor.getText());
+        for (int i = 0; i < positionsOfS.size(); i++) {
+            //text.setSpan(new ForegroundColorSpan(Color.RED), positionsOfS.get(i), positionsOfS.get(i) + 1, 0);
+            s.setSpan(
+                    new ForegroundColorSpan(Color.RED),
+                    positionsOfS.get(i),
+                    positionsOfS.get(i) + 1,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        }
+
+        //editor.setText(text, TextView.BufferType.SPANNABLE);
+    }
+
+    private void syntaxHighlight(Editable s) {
+        // ASSUMPTION: tokens.length should equal to offsets.length
+        int[] tokens = fakeGetTokens();
+        int[] offsets = fakeGetOffsets();
+
+        HashMap<Integer, Integer> colorHashMap = generateColorHashMap();
+
+        try {
+
+            //SpannableString text = new SpannableString(editor.getText());
+
+            int token;
+            if (randomPosition % 3 == 0) {
+                token = tokens[1];
+            } else {
+                token = tokens[3];
+            }
+
+            int offsetStart = randomPosition;
+            int offsetEnd = randomPosition + 1;
+            randomPosition++;
+            if (randomPosition > 30) {
+                randomPosition = 0;
+            }
+
+            Integer color = colorHashMap.get((Integer) token);
+            //text.setSpan(new ForegroundColorSpan(color), offsetStart, offsetEnd, 0);
+            s.setSpan(
+                    new ForegroundColorSpan(color),
+                    offsetStart,
+                    offsetEnd,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            /*for (int i = 0; i < offsets.length - 1; i++) {
+                int token = tokens[i];
+
+                //int offsetStart = offsets[i];
+                //int offsetEnd = offsets[i + 1];
+
+                int offsetStart = randomPosition;
+                int offsetEnd = randomPosition + 1;
+                randomPosition++;
+
+                Integer color = colorHashMap.get((Integer) token);
+                //text.setSpan(new ForegroundColorSpan(color), offsetStart, offsetEnd, 0);
+                s.setSpan(
+                        new ForegroundColorSpan(color),
+                        offsetStart,
+                        offsetEnd,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }*/
+            //editor.setText(text, TextView.BufferType.SPANNABLE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private HashMap<Integer, Integer> generateColorHashMap() {
+        HashMap<Integer, Integer> colorHashMap = new HashMap<Integer, Integer>();
+
+        colorHashMap.put(339, Color.rgb(0, 0, 0));
+        colorHashMap.put(333, Color.rgb(0, 0, 255));
+        colorHashMap.put(44, Color.rgb(160, 32, 240));
+
+        return colorHashMap;
+    }
+
+    private int[] fakeGetTokens() {
+        return new int[] {339, 333, 339, 44, 103};
+    }
+
+    private int[] fakeGetOffsets() {
+        return new int[] {0, 1, 5, 6, 8};
+    }
+
+    public int matchParentheses(Editable s) {
+        ArrayList<Character> parenthesesClose = new ArrayList<>();
+        parenthesesClose.add(')');
+        parenthesesClose.add('}');
+        parenthesesClose.add(']');
+
+        ArrayList<Character> parenthesesOpen = new ArrayList<>();
+        parenthesesOpen.add('(');
+        parenthesesOpen.add('{');
+        parenthesesOpen.add('[');
+
+        int cursorPos = editor.getSelectionStart();
+        String texts = s.toString();
+
+        try {
+            char characterLeftToCursor = texts.toString().charAt(cursorPos - 1);
+            int direction = 0;
+
+            if (parenthesesClose.contains(characterLeftToCursor)) {
+                //Log.d("JavaEditor_CanvasDraw", "it's a CLOSING bracket");
+                direction = -1;
+
+            } else if (parenthesesOpen.contains(characterLeftToCursor)) {
+                //Log.d("JavaEditor_CanvasDraw", "it's an OPENING bracket");
+                direction = 1;
+
+            } else {
+                //Log.d("JavaEditor_CanvasDraw", "NOT a bracket");
+                direction = 0;
+            }
+
+            if (direction == -1) {
+                int openBr = 0;
+                int pos = -1;
+
+                for (int i = cursorPos - 1; i >= 0; i--) {
+                    char character = texts.toString().charAt(i);
+
+                    if (parenthesesClose.contains(character)) {
+                        openBr++;
+                    }
+
+                    if (parenthesesOpen.contains(character)) {
+                        openBr--;
+                    }
+
+                    if (openBr == 0) {
+                        pos = i;
+                        break;
+                    }
+                }
+
+                if (pos >= 0) {
+                    //Log.d("JavaEditor_CanvasDraw", "FOUND A MATCH! pos = " + pos);
+
+                    underline(s, pos, cursorPos);
+
+                    final int leftPos = pos;
+                    final int rightPos = cursorPos;
+                    final Editable editable = s;
+                    Runnable timerRunnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            removeUnderline(editable, leftPos, rightPos);
+                            //Log.d("JavaEditor_CanvasDraw", "=========================timerRunnalbe====================");
+                        }
+                    };
+
+                    handler.postDelayed(timerRunnable, 2000);
+
+                    //resetText(pos, cursorPos);
+
+                } else {
+                    //Log.d("JavaEditor_CanvasDraw", "NO MATCH FOUND");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 1;
+    }
+
+    public void underline(Editable s, int leftPos, int rightPos) {
+        s.setSpan(
+                new UnderlineSpan(),
+                leftPos,
+                leftPos + 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        s.setSpan(
+                new UnderlineSpan(),
+                rightPos - 1,
+                rightPos,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+
+    public void removeUnderline(Editable s, int leftPos, int rightPos) {
+        UnderlineSpan[] spansOfLeftSpan = s.getSpans(leftPos, leftPos + 1, UnderlineSpan.class);
+        for (int i = 0; i < spansOfLeftSpan.length; i++) {
+            s.removeSpan(spansOfLeftSpan[i]);
+        }
+
+        UnderlineSpan[] spansOfRightSpan = s.getSpans(rightPos - 1, rightPos, UnderlineSpan.class);
+        for (int i = 0; i < spansOfRightSpan.length; i++) {
+            s.removeSpan(spansOfRightSpan[i]);
+        }
+    }
+
+/*
+    public void removeForegroundColor(Editable s, int leftPos, int rightPos) {
+        ForegroundColorSpan[] spans = s.getSpans(leftPos, rightPos, ForegroundColorSpan.class);
+        for (int i = 0; i < spans.length; i++) {
+            s.removeSpan(spans[i]);
+        }
+    }
+*/
+
+    public void updateEditorContents() {
+        editorTexts = editor.getText().toString();
+        editorLines = editorTexts.split("\n", -1);
+    }
+
+
+
+// In Activity, call simulation methods.
+        //executeSimulation();
+        /*
+        handlerPostDelayed(0, 'f');
+        handlerPostDelayed(1, 'u');
+        handlerPostDelayed(2, 'n');
+        handlerPostDelayed(3, 'c');
+        handlerPostDelayed(4, 't');
+        handlerPostDelayed(5, 'i');
+        handlerPostDelayed(6, 'o');
+        handlerPostDelayed(7, 'n');
+        handlerPostDelayed(8, ' ');
+        handlerPostDelayed(9, 'f');
+        handlerPostDelayed(10, 'o');
+        handlerPostDelayed(11, 'o');
+        handlerPostDelayed(12, '\n');
+        handlerPostDelayed(13, 'e');
+        handlerPostDelayed(14, 'n');
+        handlerPostDelayed(15, 'd');
+        */
+
+        /*
+        InputStream inputStream = null;
+        int i;
+        char c;
+
+        try {
+            inputStream = getApplicationContext().getResources().openRawResource(R.raw.file1);//make sure txt file removes all leading spaces.
+            System.out.println("Characters printed:");
+
+            int count = 0;
+            // reads till the end of the stream
+            while ((i = inputStream.read()) != -1) {
+                System.out.print("count = " + count + ": ");
+                System.out.print("int = " + i + ", ");
+
+                if (i == 13) { // DO NOTHING 13,12 => \n ?
+                    System.out.print("char = " + "\n");
+                    //handlerPostDelayed(count, '\n');
+                } else if (i == 32) {
+                    System.out.print("char = " + " ");
+                    handlerPostDelayed(count, ' ');
+                } else {
+                    c = (char) i;
+                    System.out.print("char = " + c);
+                    handlerPostDelayed(count, c);
+                }
+
+                System.out.println();
+                count++;
+            }
+        } catch (Exception e) {
+            // if any I/O error occurs
+            e.printStackTrace();
+        } finally {
+            // releases system resources associated with this stream
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

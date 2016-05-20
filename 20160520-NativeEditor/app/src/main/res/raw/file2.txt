@@ -1,0 +1,5 @@
+% Declare the constructor
+function v = vector(a,b)
+v.x = a;
+v.y = b;
+end

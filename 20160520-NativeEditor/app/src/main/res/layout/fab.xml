@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/fab_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:clipChildren="false" >
+
+        <!--
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:stateListAnimator="@anim/fab_state_list_animator"
+            android:id="@+id/fab_action_3"
+            android:src="@drawable/undo"
+            android:layout_above="@+id/fab_action_2"
+            android:layout_alignEnd="@+id/fab"
+            android:contentDescription="@null"
+            android:onClick="fabAction3" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:stateListAnimator="@anim/fab_state_list_animator"
+            android:id="@+id/fab_action_2"
+            android:src="@drawable/redo"
+            android:layout_above="@+id/fab_action_1"
+            android:layout_alignEnd="@id/fab"
+            android:contentDescription="@null"
+            android:onClick="fabAction2" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:stateListAnimator="@anim/fab_state_list_animator"
+            android:id="@+id/fab_action_1"
+            android:src="@drawable/plus"
+            android:layout_above="@id/fab"
+            android:layout_alignEnd="@id/fab"
+            android:contentDescription="@null"
+            android:onClick="fabAction1" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:stateListAnimator="@anim/fab_state_list_animator"
+            android:id="@+id/fab"
+            android:src="@drawable/plus"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="@null"
+            android:visibility="visible"
+            android:layout_marginTop="8dp" />
+        -->
+
+        <ImageButton
+            android:id="@+id/fab_action_go_to_line"
+            style="@style/FloatingActionButton.Mini.ReadFile"
+            android:src="@drawable/go_to_line"
+            android:layout_above="@+id/fab_action_move_left"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_move_left"
+            style="@style/FloatingActionButton.Mini.ReadFile"
+            android:src="@drawable/move_left"
+            android:layout_above="@+id/fab_action_move_right"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_move_right"
+            style="@style/FloatingActionButton.Mini.ReadFile"
+            android:src="@drawable/move_right"
+            android:layout_above="@+id/fab_action_undo"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_undo"
+            style="@style/FloatingActionButton.Mini.UndoRedo"
+            android:src="@drawable/undo"
+            android:layout_above="@+id/fab_action_redo"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_redo"
+            style="@style/FloatingActionButton.Mini.UndoRedo"
+            android:src="@drawable/redo"
+            android:layout_above="@+id/fab_action_max_line_number"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_max_line_number"
+            style="@style/FloatingActionButton.Mini.Feature"
+            android:src="@drawable/max_line_number"
+            android:layout_above="@+id/fab_action_line_highlight"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_line_highlight"
+            style="@style/FloatingActionButton.Mini.Feature"
+            android:src="@drawable/line_highlight"
+            android:layout_above="@+id/fab_action_underline"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_underline"
+            style="@style/FloatingActionButton.Mini.Feature"
+            android:src="@drawable/underline"
+            android:layout_above="@+id/navigate_to_next_page"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_read_file1"
+            style="@style/FloatingActionButton.Mini.ReadFile"
+            android:src="@drawable/ai"
+            android:layout_toLeftOf="@+id/navigate_to_next_page"
+            android:layout_toStartOf="@+id/navigate_to_next_page"
+            android:layout_alignBottom="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <!--ImageButton
+            android:id="@+id/fab_action_read_file2"
+            style="@style/FloatingActionButton.Mini.ReadFile"
+            android:src="@drawable/file2"
+            android:layout_toLeftOf="@+id/fab_action_read_file1"
+            android:layout_toStartOf="@+id/fab_action_read_file1"
+            android:layout_alignBottom="@+id/fab"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_read_file3"
+            style="@style/FloatingActionButton.Mini.ReadFile"
+            android:src="@drawable/file3"
+            android:layout_toLeftOf="@+id/fab_action_read_file2"
+            android:layout_toStartOf="@+id/fab_action_read_file2"
+            android:layout_alignBottom="@+id/fab"
+            android:contentDescription="@null" /-->
+
+        <ImageButton
+            android:id="@+id/fab_action_readonly"
+            style="@style/FloatingActionButton.Mini.Feature"
+            android:src="@drawable/read_only"
+            android:layout_toLeftOf="@+id/fab_action_read_file1"
+            android:layout_toStartOf="@+id/fab_action_read_file1"
+            android:layout_alignBottom="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/fab_action_show_undomanager"
+            style="@style/FloatingActionButton.Mini.Feature"
+            android:src="@drawable/undo_manager"
+            android:layout_toLeftOf="@+id/fab_action_readonly"
+            android:layout_toStartOf="@+id/fab_action_readonly"
+            android:layout_alignBottom="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/navigate_to_next_page"
+            style="@style/FloatingActionButton"
+            android:src="@drawable/plus"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="@null"
+            android:visibility="visible"
+            android:layout_marginTop="8dp" />
+
+
+    </RelativeLayout>
+</merge>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.chensuworks.nativeeditor.MatlabEditorActivity">
+
+    <include layout="@layout/native_editor_multiline_edittext" />
+
+    <!--android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email" /-->
+
+    <!--ImageButton
+        android:id="@+id/fab"
+        style="@style/FloatingActionButton"
+        android:src="@drawable/plus"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="@null" /-->
+
+    <include layout="@layout/fab" />
+
+</RelativeLayout>

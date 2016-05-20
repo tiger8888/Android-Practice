@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="navigation_list">
+        <item>Command</item>
+        <item>Figure</item>
+        <item>Editor</item>
+        <item>History</item>
+        <item>Sensor</item>
+    </string-array>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/fab_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:clipChildren="false" >
+
+        <ImageButton
+            android:id="@+id/navigate_to_prev_page"
+            style="@style/FloatingActionButton"
+            android:src="@drawable/move_left"
+            android:layout_above="@+id/navigate_to_next_page"
+            android:layout_alignEnd="@+id/navigate_to_next_page"
+            android:layout_alignRight="@+id/navigate_to_next_page"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/navigate_to_next_page"
+            style="@style/FloatingActionButton"
+            android:src="@drawable/move_right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="@null"
+            android:visibility="visible"
+            android:layout_marginTop="8dp" />
+
+    </RelativeLayout>
+</merge>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="mm_green">#1E9618</color> <!-- r: 30, g: 150: b: 24 -->
+    <color name="mm_green_transparent">#801E9618</color> <!-- r: 128, g: 30: b: 150 -->
+    <color name="mm_green_dark">#146310</color> <!-- r: 20, g: 99: b: 16 -->
+
+    <color name="mm_blue">#1E1896</color> <!-- r: 30, g: 24: b: 150 -->
+    <color name="mm_blue_transparent">#801E1896</color> <!-- r: 128, g: 150: b: 30 -->
+    <color name="mm_blue_dark">#141063</color> <!-- r: 20, g: 16: b: 99 -->
+
+    <color name="mm2_blue">#3F51B5</color>
+    <color name="mm2_blue_transparent">#803F51B5</color>
+    <color name="mm2_blue_dark">#303F9F</color>
+
+</resources>

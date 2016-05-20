@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KeyboardlessEditText</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="simple_ime">Matlab Mobile IME</string>
+    <string name="subtype_en_US">English (US)</string>
+
+</resources>

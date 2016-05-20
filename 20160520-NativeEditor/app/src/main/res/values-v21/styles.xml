@@ -1,0 +1,24 @@
+<resources>>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/mm_green</item>
+        <item name="colorPrimaryDark">@color/mm_green_dark</item>
+        <item name="colorAccent">@color/mm_green</item>
+        <item name="android:colorControlHighlight">@color/mm_green_transparent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="FloatingActionButton" parent="android:Widget.Material.Button">
+        <item name="android:background">@drawable/fab_background</item>
+        <item name="android:stateListAnimator">@anim/fab_state_list_animator</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+    </style>
+
+</resources>

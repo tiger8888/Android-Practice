@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PLACEHOLDER" />
+
+    <EditText
+        android:id="@+id/paginated_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minWidth="100dp"
+        android:minHeight="100dp"
+        android:background="@android:color/white"
+        android:scrollHorizontally="true"
+        android:padding="0dp"
+        android:gravity="top"
+        android:textSize="15sp"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="textNoSuggestions|textMultiLine" />
+
+</LinearLayout>

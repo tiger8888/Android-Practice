@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the theme applied to the application or activity -->
+    <!-- default behavior of @style/ThemeOverlay.AppCompat.ActionBar hides the action bar and only shows the navigation tabs -->
+    <style name="CustomActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/MyActionBar</item>
+    </style>
+
+    <!-- MyActionBar styles -->
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">#aaabbb</item>
+    </style>
+</resources>
