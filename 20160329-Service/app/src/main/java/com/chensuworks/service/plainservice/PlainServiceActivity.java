@@ -39,7 +39,6 @@ public class PlainServiceActivity extends Activity {
                 intent.putExtra("in-msg", editText.getText().toString());
                 startService(intent);*/
 
-                // TODO: this way still blocks UI thread, why?
                 /**
                  * http://developer.android.com/reference/android/app/Service.html
                  * A Service is not a separate process. The Service object itself does not imply it is running in its own process; unless otherwise specified, it runs in the same process as the application it is part of.
@@ -59,6 +58,12 @@ public class PlainServiceActivity extends Activity {
                 stopService(intent);
             }
         });
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
         IntentFilter filter = new IntentFilter("com.chensuworks.intent.action.MESSAGE_PROCESSED");
         filter.addCategory(Intent.CATEGORY_DEFAULT);
