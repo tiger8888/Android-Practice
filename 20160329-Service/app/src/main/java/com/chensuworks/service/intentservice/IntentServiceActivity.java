@@ -39,11 +39,16 @@ public class IntentServiceActivity extends Activity {
             }
         });
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         IntentFilter filter = new IntentFilter("com.chensuworks.intent.action.MESSAGE_PROCESSED");
         filter.addCategory(Intent.CATEGORY_DEFAULT);
         receiver = new ResponseReceiver();
         registerReceiver(receiver, filter);
-
     }
 
     @Override
