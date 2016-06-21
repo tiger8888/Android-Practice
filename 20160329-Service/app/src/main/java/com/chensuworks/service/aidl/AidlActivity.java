@@ -18,7 +18,6 @@ public class AidlActivity extends Activity implements ServiceConnection {
 
     private TextView textView;
     private EditText editText;
-    private Button buttonStart;
     private IProcessText processTextService;
 
     @Override
@@ -28,7 +27,7 @@ public class AidlActivity extends Activity implements ServiceConnection {
 
         textView = (TextView) findViewById(R.id.text_view);
         editText = (EditText) findViewById(R.id.edit_text);
-        buttonStart = (Button) findViewById(R.id.button_start);
+        Button buttonStart = (Button) findViewById(R.id.button_start);
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +47,7 @@ public class AidlActivity extends Activity implements ServiceConnection {
     protected void onResume() {
         super.onResume();
 
-        //Intent intent = new Intent("service.PROCESSTEXT");
+        // service intent must be explicit
         Intent intent = new Intent(this, ProcessTextService.class);
         bindService(intent, this, Context.BIND_AUTO_CREATE);
     }

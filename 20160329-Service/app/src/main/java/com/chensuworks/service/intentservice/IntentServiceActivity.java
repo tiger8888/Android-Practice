@@ -17,7 +17,6 @@ public class IntentServiceActivity extends Activity {
 
     private TextView textView;
     private EditText editText;
-    private Button button;
     private ResponseReceiver receiver;
 
     @Override
@@ -27,7 +26,7 @@ public class IntentServiceActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.text_view);
         editText = (EditText) findViewById(R.id.edit_text);
-        button = (Button) findViewById(R.id.button_start);
+        Button button = (Button) findViewById(R.id.button_start);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

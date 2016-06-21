@@ -17,8 +17,6 @@ public class PlainServiceActivity extends Activity {
 
     private TextView textView;
     private EditText editText;
-    private Button buttonStart;
-    private Button buttonStop;
     private ResponseReceiver receiver;
 
     @Override
@@ -28,8 +26,8 @@ public class PlainServiceActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.text_view);
         editText = (EditText) findViewById(R.id.edit_text);
-        buttonStart = (Button) findViewById(R.id.button_start);
-        buttonStop = (Button) findViewById(R.id.button_stop);
+        Button buttonStart = (Button) findViewById(R.id.button_start);
+        Button buttonStop = (Button) findViewById(R.id.button_stop);
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override

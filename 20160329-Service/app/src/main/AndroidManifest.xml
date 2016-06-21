@@ -9,21 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".intentservice.IntentServiceActivity">
-            <!--intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter-->
-        </activity>
-
-        <activity android:name=".plainservice.PlainServiceActivity">
-            <!--intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter-->
-        </activity>
+        <!-- activities -->
+        <activity android:name=".intentservice.IntentServiceActivity" />
+        <activity android:name=".plainservice.PlainServiceActivity" />
 
         <activity android:name=".aidl.AidlActivity">
             <intent-filter>
@@ -33,17 +21,13 @@
             </intent-filter>
         </activity>
 
+        <!-- services -->
         <service android:name=".intentservice.SimpleIntentService" />
+        <service android:name=".aidl.ProcessTextService" />
 
         <service android:name=".plainservice.SimplePlainService" android:enabled="true">
             <intent-filter>
                 <action android:name="com.chensuworks.plainservice.SERVICE" />
-            </intent-filter>
-        </service>
-
-        <service android:name=".aidl.ProcessTextService">
-            <intent-filter>
-                <action android:name="service.PROCESSTEXT" />
             </intent-filter>
         </service>
 
