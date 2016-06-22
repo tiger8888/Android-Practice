@@ -21,24 +21,24 @@ public class FrameAnimationActivity2 extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.framebyframe_switcher);
 
-		ImageSwitcher switcher = (ImageSwitcher) findViewById(R.id.ImageSwitcher_Juggle);
+		ImageSwitcher switcher = (ImageSwitcher) findViewById(R.id.image_switcher_juggle);
 		switcher.setVisibility(View.VISIBLE);
 
 		switcher.setFactory(new ViewSwitcher.ViewFactory() {
-
+			@Override
 			public View makeView() {
 				ImageView iv = new ImageView(FrameAnimationActivity2.this);
 				iv.setBackgroundColor(0xFF000000);
 				iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-				iv.setLayoutParams(new ImageSwitcher.LayoutParams(
-						ImageSwitcher.LayoutParams.MATCH_PARENT, ImageSwitcher.LayoutParams.MATCH_PARENT));
+				iv.setLayoutParams(new ImageSwitcher.LayoutParams(ImageSwitcher.LayoutParams.MATCH_PARENT, ImageSwitcher.LayoutParams.MATCH_PARENT));
 				return iv;
 			}
 		});
 
 		// Handle Start Button
-		final Button onButton = (Button) findViewById(R.id.ButtonStart);
+		final Button onButton = (Button) findViewById(R.id.button_start);
 		onButton.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				startAnimation();
 			}
@@ -47,12 +47,15 @@ public class FrameAnimationActivity2 extends Activity {
 	}
 
 	private void startAnimation() {
-		final ImageSwitcher switcher = (ImageSwitcher) findViewById(R.id.ImageSwitcher_Juggle);
+		final ImageSwitcher switcher = (ImageSwitcher) findViewById(R.id.image_switcher_juggle);
 
 		new Thread() {
-			final int dur = 500;
-			final int imageResourceIds[] = { R.drawable.splash1,
-					R.drawable.splash2, R.drawable.splash3 };
+			final int duration = 500;
+			final int imageResourceIds[] = {
+					R.drawable.splash1,
+					R.drawable.splash2,
+					R.drawable.splash3
+			};
 			int cur = 0;
 
 			@Override
@@ -70,7 +73,7 @@ public class FrameAnimationActivity2 extends Activity {
 						cur++;
 
 						try {
-							wait(dur);
+							wait(duration);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

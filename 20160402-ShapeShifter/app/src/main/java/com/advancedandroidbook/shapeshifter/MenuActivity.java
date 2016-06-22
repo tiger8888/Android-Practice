@@ -26,11 +26,8 @@ public abstract class MenuActivity extends ListActivity {
 
 		prepareMenu();
 
-		String[] keys = actions.keySet().toArray(
-				new String[actions.keySet().size()]);
-
-		setListAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, keys));
+		String[] keys = actions.keySet().toArray(new String[actions.keySet().size()]);
+		setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, keys));
 	}
 
 	public void addMenuItem(String label, Class<?> cls) {

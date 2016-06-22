@@ -21,16 +21,18 @@ public class FrameAnimationActivity extends Activity {
 		setContentView(R.layout.framebyframe);
 
 		// Handle Start Button
-		final Button onButton = (Button) findViewById(R.id.ButtonStart);
+		final Button onButton = (Button) findViewById(R.id.button_start);
 		onButton.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				startAnimation();
 			}
 		});
 
 		// Handle Stop Button
-		final Button offButton = (Button) findViewById(R.id.ButtonStop);
+		final Button offButton = (Button) findViewById(R.id.button_stop);
 		offButton.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				stopAnimation();
 			}
@@ -41,17 +43,15 @@ public class FrameAnimationActivity extends Activity {
 	@SuppressLint("NewApi")
 	@SuppressWarnings("deprecation")
 	private void startAnimation() {
-		ImageView img = (ImageView) findViewById(R.id.ImageView_Juggle);
+		ImageView img = (ImageView) findViewById(R.id.imageview_juggle);
 
-		BitmapDrawable frame1 = (BitmapDrawable) getResources().getDrawable(
-				R.drawable.splash1);
-		BitmapDrawable frame2 = (BitmapDrawable) getResources().getDrawable(
-				R.drawable.splash2);
-		BitmapDrawable frame3 = (BitmapDrawable) getResources().getDrawable(
-				R.drawable.splash3);
+		BitmapDrawable frame1 = (BitmapDrawable) getResources().getDrawable(R.drawable.splash1);
+		BitmapDrawable frame2 = (BitmapDrawable) getResources().getDrawable(R.drawable.splash2);
+		BitmapDrawable frame3 = (BitmapDrawable) getResources().getDrawable(R.drawable.splash3);
 
-		// Get the background, which has been compiled to an AnimationDrawable
-		// object.
+		if (frame1 == null || frame2 == null || frame3 == null) return;
+
+		// Get the background, which has been compiled to an AnimationDrawable object.
 		int reasonableDuration = 250;
 		mframeAnimation = new AnimationDrawable();
 		mframeAnimation.setOneShot(false); // loop continuously

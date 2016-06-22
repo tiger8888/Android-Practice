@@ -9,18 +9,18 @@
 		android:layout_height="wrap_content"
 		android:text="@string/framebyframe" />
 	<LinearLayout
-		android:id="@+id/ButtonRow"
+		android:id="@+id/button_row"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
 		<Button
-			android:id="@+id/ButtonStart"
+			android:id="@+id/button_start"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/go" />
 	</LinearLayout>
 	<ImageSwitcher
-		android:id="@+id/ImageSwitcher_Juggle"
+		android:id="@+id/image_switcher_juggle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" />
 </LinearLayout>

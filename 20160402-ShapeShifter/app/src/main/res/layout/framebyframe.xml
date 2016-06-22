@@ -10,21 +10,21 @@
         android:layout_centerHorizontal="true"
         android:text="@string/framebyframe" />
     <Button
-        android:id="@+id/ButtonStart"
+        android:id="@+id/button_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/title"
         android:text="@string/start" />
     <Button
-        android:id="@+id/ButtonStop"
+        android:id="@+id/button_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/title"
         android:text="@string/stop" />
     <ImageView
-        android:id="@+id/ImageView_Juggle"
+        android:id="@+id/imageview_juggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" 
