@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public abstract class MenuActivity extends ListActivity {
-	private SortedMap<String, Object> actions = new TreeMap<String, Object>();
+	private SortedMap<String, Object> actions = new TreeMap<>();
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
