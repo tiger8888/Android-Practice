@@ -55,11 +55,9 @@ public class NativeBasicsActivity extends Activity {
 
 	private native void basicNativeCall();
 
-	private native String formattedAddition(int num1, int num2,
-			String formatString);
+	private native String formattedAddition(int num1, int num2, String formatString);
 
-	private native void throwsException(int num)
-			throws IllegalArgumentException;
+	private native void throwsException(int num) throws IllegalArgumentException;
 
 	private native void checksException(int num);
 }
