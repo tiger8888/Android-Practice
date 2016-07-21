@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chensuworks.button.CustomViewActivity;
 import com.chensuworks.button.R;
 
 public class CreateUserDialogFragment extends DialogFragment {
@@ -53,8 +55,7 @@ public class CreateUserDialogFragment extends DialogFragment {
         mPositiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "User created!", Toast.LENGTH_SHORT).show();
-                dismiss();
+                performCreateAction();
             }
         });
 
@@ -76,14 +77,19 @@ public class CreateUserDialogFragment extends DialogFragment {
                     mError.setText("Last name should NOT be empty!");
 
                 } else {
-                    Toast.makeText(getActivity(), "User created!", Toast.LENGTH_SHORT).show();
-                    dismiss();
+                    performCreateAction();
                 }
                 return true;
             }
         });
 
         return dialog;
+    }
+
+    private void performCreateAction() {
+        //Toast.makeText(getActivity(), "User created!", Toast.LENGTH_SHORT).show();
+        //dismiss();
+        startActivity(new Intent(getActivity(), CustomViewActivity.class));
     }
 
     class EditTextWatch implements TextWatcher {
