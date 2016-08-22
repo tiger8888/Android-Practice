@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidArt View</string>
+
+    <string-array name="landing_options">
+        <item>Move Button</item>
+    </string-array>
+</resources>
